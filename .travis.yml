@@ -1,0 +1,9 @@
+language: generic
+sudo: required
+serices:
+    - docker
+
+before_install:
+    - docker build -t durganz/docker-react -f dockerfile.dev .
+script:
+    - docker run -e CI=true durganz/docker-react npm run test
